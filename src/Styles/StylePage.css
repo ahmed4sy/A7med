@@ -58,7 +58,7 @@ body{
     left: 25px;
     position: fixed;
     width: 250px;
-    top: 100px;
+    top: 115px;
     padding: 25px 25px;
 }.CVp img {
 
@@ -89,7 +89,7 @@ body{
     border-radius: 25px;
     opacity: 0;
     animation: opensite-scm 1s 1 forwards 0.2s;
-    top: 450px;
+    top: 400px;
     left: 25px;
     width: 300px;
     height: 150px;
@@ -147,7 +147,7 @@ body{
     border-radius: 25px;
     opacity: 0;
     animation: opensite-foo 1s 1 forwards 0.2s;
-    left: 85px;
+    left: 70px;
     bottom: 50px;
     transition: .1s;
 }.footer:hover {
@@ -164,7 +164,8 @@ body{
     opacity: 0;
     font-family:monospace;
     animation: opensite-foo 1s 1 forwards 0.2s;
-    left: 40px;
+    left: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     bottom: 50px;
     transition: .1s;
 }.footerp:hover {
