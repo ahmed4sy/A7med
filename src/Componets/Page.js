@@ -3,7 +3,7 @@ import axios from "axios";
 export default function Page({ children }) {
   let [Onlis, setOnlis] = useState(false);
   let [popUp, SetpopUp] = useState("pop-down");
-  let [cls, setCls] = useState("lis-off");
+  let [cls, setCls] = useState("");
   let [Feedback, setFeedback] = useState("");
 
   return (
