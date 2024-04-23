@@ -15,8 +15,11 @@ export default function Scm(params) {
   return (
     <div className={classs + " color-back"}>
       <h3 className="Title-Scm">social media:</h3>
-      <img alt="twiter" className="Img-Scm" src="/I.webp" />
-      <img alt="Insta" className="Img-Scm" src="/X.svg" />
+      <a href="https://twitter.com/home">
+        <img alt="twiter" className="Img-Scm" src="/X.svg" />
+      </a>
+
+      <img alt="Insta" className="Img-Scm" src="/I.webp" />
     </div>
   );
 }
