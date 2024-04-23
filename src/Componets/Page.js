@@ -7,14 +7,16 @@ export default function Page({ children }) {
   let [Feedback, setFeedback] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("");
-
+  let [feedcss, setfeedcss] = useState("");
   useEffect(() => {
     setWidth(window.innerWidth);
     if (width <= 500) {
       setClasss("footerp");
+      setfeedcss(" feedbackp");
     }
     if (width >= 500) {
       setClasss("footer");
+      setfeedcss(" feedback");
     }
   }, [width]);
   return (
@@ -25,6 +27,7 @@ export default function Page({ children }) {
       </div>
       {children}
       <PopFB
+        feedcss={feedcss}
         pU={popUp}
         sPU={SetpopUp}
         Feedback={Feedback}
@@ -41,10 +44,10 @@ export default function Page({ children }) {
     </div>
   );
 }
-function PopFB({ Feedback, setFeedback, pU, sPU }) {
+function PopFB({ Feedback, feedcss, setFeedback, pU, sPU }) {
   return (
     <form
-      className={pU + " feedback"}
+      className={pU + feedcss}
       onSubmit={(e) => {
         e.preventDefault();
         try {
