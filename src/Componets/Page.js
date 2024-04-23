@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 export default function Page({ children }) {
   let [Onlis, setOnlis] = useState(false);
   let [popUp, SetpopUp] = useState("pop-down");
   let [cls, setCls] = useState("");
   let [Feedback, setFeedback] = useState("");
+  const [width, setWidth] = useState(window.innerWidth);
+  let [classs, setClasss] = useState("");
 
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    if (width <= 500) {
+      setClasss("footerp");
+    }
+    if (width >= 500) {
+      setClasss("footer");
+    }
+  }, [width]);
   return (
     <div className="Page">
       <div className="Head">
@@ -20,6 +31,7 @@ export default function Page({ children }) {
         setFeedback={setFeedback}
       />
       <footer
+        className={classs}
         onClick={() => {
           popUp === "pop-up" ? SetpopUp("pop-down") : SetpopUp("pop-up");
         }}
