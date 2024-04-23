@@ -14,22 +14,24 @@ body{
     user-select: none;
 
 }
+
 .Head{
     position: fixed;
     background-image: url("Bar.png");
     background-repeat: repeat;
     background-position: center;
     background-size: contain;
-    border-bottom: 10px solid #b865fcae;
+    border-bottom: 10px solid #45C4B0;
     width: 100%;
 
 }
-
+.color-back {
+    background-color: #012030cf;
+    border-top: 10px #13668acc solid;
+}
 .CV {
     text-align: center;
     animation-name: opensite-cv;
-    background-color: #8865fc7e;
-    border-top: 10px #65a4fc6c solid;
     border-radius: 25px;
     opacity: 0;
     animation: opensite-cv 1s 1 forwards 0.2s;
@@ -50,8 +52,6 @@ body{
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     animation-name: opensite-cv;
-    background-color: #8865fc7e;
-    border-top: 10px #65a4fc6c solid;
     border-radius: 25px;
     opacity: 0;
     animation: opensite-cv 1s 1 forwards 0.2s;
@@ -71,8 +71,6 @@ body{
 }
 .Scm{
     position: fixed;
-    background-color: #8865fc7e;
-    border-top: 10px #65a4fc6c solid;
     border-radius: 25px;
     opacity: 0;
     animation: opensite-scm 1s 1 forwards 0.2s;
@@ -120,8 +118,6 @@ body{
 }
 .Con {
     position: fixed;
-    background-color: #8865fc7e;
-    border-top: 10px #65a4fc6c solid;
     border-radius: 25px;
     opacity: 0;
     animation: opensite-con 1s 1 forwards 0.2s;
@@ -143,7 +139,7 @@ body{
     width: 250px;
     text-align: center;
     color: black;
-    background-color:#65d4fc;
+    background-color:#45C4B0;
     border-radius: 25px;
     opacity: 0;
     animation: opensite-foo 1s 1 forwards 0.2s;
@@ -178,7 +174,7 @@ body{
     left: 90px;
     bottom: 130px;
     padding: 15px 25px;
-    background-color: rgb(79, 164, 216);
+    background-color: rgb(55, 79, 71);
     border-radius: 50px;
 }.feedbackp{
     position: fixed;
@@ -199,10 +195,15 @@ body{
     font-family: cursive;
 }#sub {
     border: none;
-    height: 25px;
+    background-color: rgb(55, 79, 71);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 0 15px 15px 0;
     transition: .2s;
 }#sub:hover {
     background-color:cadetblue;
+    color: black;
 }
 .pop-up {
     opacity: 0;

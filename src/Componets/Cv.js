@@ -13,7 +13,7 @@ export default function Cv(params) {
     }
   }, [width]);
   return (
-    <div className={classs}>
+    <div className={classs + " color-back"}>
       <img src="/pro.png" alt="pro" />
       <h2 className={"Title-Cv"}>Ahmed Yousif</h2>
       <p className="P-Cv">
