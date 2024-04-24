@@ -97,6 +97,9 @@ body{
     width: 50px;
     margin: 5px;
 }
+.img {
+    width:50px
+}
 .Img-Scm:hover .Scm {
     padding-top: 100px;
     background-color: black;
@@ -105,7 +108,7 @@ body{
     display: inline-block;
     background-color:#65d4fc96;
     border-radius: 25px;
-    color: black;
+    color: white;
     margin: 25px;
     width: 250px;
     height: 250px;
@@ -114,7 +117,8 @@ body{
 
 }.Post:hover {
     background-color:rgba(142, 213, 191, 0.901);
-    color: black;
+    border: 5px white solid;
+    margin: 15px;
 }
 .Con {
     position: fixed;
@@ -127,7 +131,41 @@ body{
     height: 75%;
 }.Con h3 {
     margin-left: 25px;
-}.list {
+}
+
+
+
+.c1lan {
+    background-image: url("../../public/projects/25956-200.png");
+    background-position: center;
+    background-clip: content-box;
+}
+.c2lan {
+    background-image: url("../../public/projects/download.png");
+    background-position: center;
+    background-clip: content-box;
+    background-size: cover;
+}.c3lan {
+    background-image: url("../../public/projects/downloa.png");
+    background-position: center;
+    background-clip: content-box;
+    background-size: cover;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.list {
     position: fixed;
     right: 25px;
     top: 25px;
