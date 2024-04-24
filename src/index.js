@@ -10,13 +10,28 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<TApp />} />
-        <Route path="/none" />
+        <Route path="/" element={<TApp />} />
+        <Route path="/*" element={<NOTfound />} />
         <Route path="/home" element={<App />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
+function NOTfound(params) {
+  return (
+    <>
+      <h1
+        style={{
+          marginTop: "500px",
+          textAlign: "center",
+        }}
+      >
+        NOT FOUND 404
+      </h1>
+      <hr />
+    </>
+  );
+}
 function TApp() {
   let nav = useNavigate();
   useEffect(() => {
