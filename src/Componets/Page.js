@@ -11,8 +11,8 @@ export default function Page({ children }) {
   useEffect(() => {
     setWidth(window.innerWidth);
     if (width <= 500) {
-      setClasss("footerp");
-      setfeedcss(" feedbackp");
+      setClasss(" footer footerp ");
+      setfeedcss(" feedback feedbackp ");
     }
     if (width >= 500) {
       setClasss("footer");
