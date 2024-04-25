@@ -21,10 +21,118 @@ body{
     background-repeat: repeat;
     background-position: center;
     background-size: contain;
-    border-bottom: 10px solid #45c4b19e;
     width: 100%;
 
 }
+.List-Page{
+    position: fixed;
+    right: 30px;
+    top: -40px;
+    font-size: 65px;
+    transition: 5s;
+
+}
+.lista {
+    position: fixed;
+    width: 250px;
+    background-color: #023752cf;
+    right: 25px;
+
+}.pagelis {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-family:monospace;
+    padding-bottom: 10px;
+    margin: 0;
+    padding-top: 15px;
+    transition: .2s;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.784);
+}
+.pagelis:hover{
+    background-color: #13668a;
+    color: #012030;
+    padding: 15px;
+}#abt {border: none;}
+
+
+.list-on {
+    animation: listani 1 forwards 1s;
+}
+.prg-on{
+    opacity: 0;
+    animation: 0s eles 1 forwards 0.2s;
+}
+.fbs-on{
+    opacity: 0;
+    animation: .5s eles 1 forwards 0.2s;
+}
+.abt-on {
+    opacity: 0;
+    animation: 1s eles 1 forwards 0.2s;
+}
+
+
+.list-off {
+    animation: listanioff 1 forwards 1s ;
+}
+.prg-off{
+    opacity: 0;
+    animation: 1s elesoff 1 forwards 0.05s ;
+}
+.fbs-off{
+    opacity: 0;
+    animation: .5s elesoff 1 forwards 0.05s ;
+}
+.abt-off {
+    opacity: 0;
+    animation: 0s elesoff 1 forwards 0.05s ;
+}
+
+
+
+@keyframes listani{
+    from {
+        height: 0px
+    }
+    to {
+        height: 170px;
+        display: hide;
+    }
+}
+@keyframes eles{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        display: hide;
+    }
+}
+
+
+
+@keyframes listanioff{
+    from {
+        height: 170px
+    }
+    to {
+        height: 0px
+    }
+}
+@keyframes elesoff{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+
+
 .color-back {
     background-color: #012030cf;
     border-top: 10px #13668acc solid;
@@ -115,10 +223,13 @@ body{
     text-align: center;
     transition: .2s;
 
-}.Post:hover {
+}.Post h1 {
+    margin-top: 80%;
+}
+.Post:hover {
     background-color:rgba(142, 213, 191, 0.901);
     border: 5px white solid;
-    margin: 15px;
+    margin: 10px;
 }
 .Con {
     position: fixed;
@@ -160,17 +271,6 @@ body{
 
 
 
-
-
-
-
-
-.list {
-    position: fixed;
-    right: 25px;
-    top: 25px;
-    transition: .5s;
-}
 .footer {
     position: fixed;
     padding: 15px;
