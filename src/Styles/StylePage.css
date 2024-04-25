@@ -14,7 +14,22 @@ body{
     user-select: none;
 
 }
-
+.loading{
+    position: fixed;
+    background-color: #1c273a;
+    width: 100%;
+    height: 100%;
+}.load img {
+display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    margin-left: 36%;
+    margin-top: 15%;
+}.sizeP img{
+    margin-top: 50%;
+    margin-left: 5px;
+}
 .Head{
     position: fixed;
     background-image: url("Bar.png");

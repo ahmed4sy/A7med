@@ -5,6 +5,7 @@ import Post from "./Componets/Post";
 import Template from "./Componets/Container";
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
+import { useEffect, useState } from "react";
 function App() {
   const imgsP = [
     { id: 1, img: "Cmoney", link: "https://cmoney-one.vercel.app/" },
@@ -16,14 +17,38 @@ function App() {
       <Post Key={data.id} namep={data.img} key={data.id} link={data.link} />
     );
   });
+  const [width, setWidth] = useState(window.innerWidth);
+  let [loa, setLoa] = useState("sizeC");
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    if (width <= 500) {
+      setLoa("sizeP");
+    }
+  }, [width]);
+  let [loading, setloading] = useState(false);
+  useEffect(() => {
+    setloading(true);
+    setTimeout(() => {
+      setloading(false);
+    }, 1000);
+  }, []);
   return (
-    <div>
-      <Page>
-        <Cv />
-        <Scm />
-        <Template>{arrImgs}</Template>
-      </Page>
-    </div>
+    <>
+      {loading ? (
+        <div className={"load " + loa}>
+          <div className="loading"></div>
+          <img alt="loading" src="wait.gif" />
+        </div>
+      ) : (
+        <div>
+          <Page>
+            <Cv />
+            <Scm />
+            <Template>{arrImgs}</Template>
+          </Page>
+        </div>
+      )}
+    </>
   );
 }
 
