@@ -227,6 +227,7 @@ display: flex;
     background-color: black;
 }
 .Post {
+    position: fixed;
     display: inline-block;
     background-color:#65d4fc96;
     border-radius: 25px;
@@ -264,17 +265,20 @@ display: flex;
     background-image: url("../../public/projects/25956-200.png");
     background-position: center;
     background-clip: content-box;
+
 }
 .c2lan {
     background-image: url("../../public/projects/download.png");
     background-position: center;
     background-clip: content-box;
     background-size: cover;
+    left: 750px;
 }.c3lan {
     background-image: url("../../public/projects/downloa.png");
     background-position: center;
     background-clip: content-box;
     background-size: cover;
+    left: 1050px;
 
 }
 
