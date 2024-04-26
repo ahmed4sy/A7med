@@ -37,6 +37,7 @@ display: flex;
     background-position: center;
     background-size: contain;
     width: 100%;
+    box-shadow:1px 1px 10px 1px #13668a;
 
 }.List-Page{
     position: fixed;
@@ -119,14 +120,17 @@ display: flex;
 .prg-off{
     opacity: 0;
     animation: 1s elesoff 1 forwards 0.05s ;
+    display: none;
 }
 .fbs-off{
     opacity: 0;
     animation: .5s elesoff 1 forwards 0.05s ;
+    display: none;
 }
 .abt-off {
     opacity: 0;
     animation: 0s elesoff 1 forwards 0.05s ;
+    display: none;
 }
 
 
@@ -146,7 +150,7 @@ display: flex;
     }
     to {
         opacity: 1;
-        display: hide;
+
     }
 }
 
@@ -158,6 +162,7 @@ display: flex;
     }
     to {
         height: 0px
+
     }
 }
 @keyframes elesoff{
