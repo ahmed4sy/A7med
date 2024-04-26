@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-
+import SCME from "./../../Data/social media.json";
 export default function Scm(params) {
   const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("Scm");
+  const scm = SCME.data;
   useEffect(() => {
     setWidth(window.innerWidth);
     if (width <= 500) {
@@ -12,15 +13,17 @@ export default function Scm(params) {
       setClasss("Scm");
     }
   }, [width]);
+  let ele = scm.map((eve) => {
+    return (
+      <a href={eve.link}>
+        <img alt={eve.name} key={eve.id} className="Img-Scm" src={eve.img} />
+      </a>
+    );
+  });
   return (
     <div className={classs + " color-back"}>
       <h3 className="Title-Scm">social media:</h3>
-      <a href="https://twitter.com/home">
-        <img alt="twiter" className="Img-Scm" src="/X.svg" />
-      </a>
-      <a href="https://www.instagram.com/">
-        <img alt="Insta" className="Img-Scm" src="/I.webp" />
-      </a>
+      {ele}
     </div>
   );
 }

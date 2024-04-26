@@ -3,15 +3,12 @@ import Cv from "./Componets/Home/Cv";
 import Scm from "./Componets/Home/SM";
 import Post from "./Componets/Home/Post";
 import Template from "./Componets/Home/Container";
+import TempData from "./Data/templates.json";
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
 import { useEffect, useState } from "react";
 function App() {
-  const imgsP = [
-    { id: 1, img: "Cmoney", link: "https://cmoney-one.vercel.app/" },
-    { id: 2, img: "Bank Lonas", link: "https://bank-loans.vercel.app/" },
-    { id: 3, img: "Select Exam", link: "https://seletc.vercel.app/" },
-  ];
+  const imgsP = TempData.data;
   let arrImgs = imgsP.map((data) => {
     return (
       <Post Key={data.id} namep={data.img} key={data.id} link={data.link} />

@@ -1,0 +1,6 @@
+{
+    "data":[
+        { "id": 1, "name": "twiter","img":"/X.svg" ,"link": "https://twitter.com/home" },
+        { "id": 2, "name": "instagram","img":"/I.webp", "link": "https://www.instagram.com/" }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "data":[
+        { "id": 1, "img": "Cmoney", "link": "https://cmoney-one.vercel.app/" },
+        { "id": 2, "img": "Bank Lonas", "link": "https://bank-loans.vercel.app/" },
+        { "id": 3, "img": "Select Exam", "link": "https://seletc.vercel.app/" }
+      ]
+}
