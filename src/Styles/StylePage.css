@@ -38,15 +38,38 @@ display: flex;
     background-size: contain;
     width: 100%;
 
-}
-.List-Page{
+}.List-Page{
     position: fixed;
     right: 30px;
-    top: -40px;
-    font-size: 65px;
-    transition: 5s;
+    top: 15px;
 
+
+}.List-Page * {
+    display: block;
+    margin: 5px;
+    padding: 0;
+    width: 55px;
+    height: 10px;
+    background-color: white;
+    transition: .5s;
 }
+.hide {
+    display: none;
+}
+.keyframespan1{
+    position: fixed;
+    transform: rotate(-45deg);
+}
+.keyframespan2{
+    position: fixed;
+    transform: rotate(45deg);
+
+}.control {
+    right: 30px;
+    top: 30px;
+}
+
+
 .lista {
     position: fixed;
     width: 250px;
