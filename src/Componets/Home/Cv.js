@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cvdata from "../../Data/Datacv.json";
 export default function Cv(params) {
   const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("");
@@ -15,11 +16,8 @@ export default function Cv(params) {
   return (
     <div className={classs + " color-back"}>
       <img src="/pro.png" alt="pro" />
-      <h2 className={"Title-Cv"}>Ahmed Yousif</h2>
-      <p className="P-Cv">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni totam
-        repellendus exercitationem mollitia. Eius incidunt nesciunt neque
-      </p>
+      <h2 className={"Title-Cv"}>{Cvdata.name}</h2>
+      <p className="P-Cv">{Cvdata.para}</p>
     </div>
   );
 }

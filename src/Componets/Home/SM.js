@@ -18,8 +18,9 @@ export default function Scm(params) {
       <a href="https://twitter.com/home">
         <img alt="twiter" className="Img-Scm" src="/X.svg" />
       </a>
-
-      <img alt="Insta" className="Img-Scm" src="/I.webp" />
+      <a href="https://www.instagram.com/">
+        <img alt="Insta" className="Img-Scm" src="/I.webp" />
+      </a>
     </div>
   );
 }
