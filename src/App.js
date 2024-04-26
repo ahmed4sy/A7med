@@ -1,8 +1,8 @@
-import Page from "./Componets/Page";
-import Cv from "./Componets/Cv";
-import Scm from "./Componets/SM";
-import Post from "./Componets/Post";
-import Template from "./Componets/Container";
+import Page from "./Componets/Home/Page";
+import Cv from "./Componets/Home/Cv";
+import Scm from "./Componets/Home/SM";
+import Post from "./Componets/Home/Post";
+import Template from "./Componets/Home/Container";
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
 import { useEffect, useState } from "react";

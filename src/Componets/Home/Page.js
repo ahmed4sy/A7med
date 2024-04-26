@@ -1,8 +1,7 @@
-import ListPage from "./list-page";
+import Bar from "./Bar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 export default function Page({ children }) {
-  let [Onlis, setOnlis] = useState(false);
   let [popUp, SetpopUp] = useState("pop-down");
   let [Feedback, setFeedback] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
@@ -37,22 +36,7 @@ export default function Page({ children }) {
       >
         FeedBack
       </footer>
-      <div className="Head">
-        <h1 className="Title-Page">A7med</h1>
-
-        {/* List */}
-        <div
-          className="List-Page"
-          onClick={() => {
-            setOnlis(Onlis ? false : true);
-          }}
-        >
-          <span className={Onlis ? "keyframespan1 control" : "none"}></span>
-          <span className={Onlis ? "hide" : "none"}></span>
-          <span className={Onlis ? "keyframespan2 control" : "none"}></span>
-        </div>
-        <ListPage list={Onlis} />
-      </div>
+      <Bar />
     </div>
   );
 }

@@ -4,7 +4,7 @@
     margin-left: 25px;
 }
 body{
-    background-image:  url("Bgif.gif");
+    background-image:  url("imgs/Bgif.gif");
     background-size:auto;
     background-repeat: repeat;
     background-position: center;
@@ -32,7 +32,7 @@ display: flex;
 }
 .Head{
     position: fixed;
-    background-image: url("Bar.png");
+    background-image: url("imgs/Bar.png");
     background-repeat: repeat;
     background-position: center;
     background-size: contain;
@@ -75,8 +75,10 @@ display: flex;
     width: 250px;
     background-color: #023752cf;
     right: 25px;
-
-}.pagelis {
+}#li{
+    text-decoration: none;
+  }
+.pagelis {
     text-align: center;
     color: white;
     font-size: 25px;

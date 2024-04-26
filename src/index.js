@@ -4,6 +4,9 @@ import "./Styles/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Projects from "./Componets/pages/projects";
+import About from "./Componets/pages/about";
+import Feedbacks from "./Componets/pages/feedbacks";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -13,6 +16,9 @@ root.render(
         <Route path="/" element={<TApp />} />
         <Route path="/*" element={<NOTfound />} />
         <Route path="/home" element={<App />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/feedbacks" element={<Feedbacks />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
