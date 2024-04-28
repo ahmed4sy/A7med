@@ -24,11 +24,19 @@ function App() {
   }, [width]);
   let [loading, setloading] = useState(false);
   useEffect(() => {
-    setloading(true);
-    setTimeout(() => {
-      setloading(false);
-    }, 1000);
-  }, []);
+    if (!sessionStorage.getItem("loading")) {
+      sessionStorage.setItem("loading", "none");
+    }
+
+    if (sessionStorage.getItem("loading") !== "view") {
+      setloading(true);
+      setTimeout(() => {
+        setloading(false);
+      }, 1000);
+      sessionStorage.setItem("loading", "view");
+    }
+  }, [loading]);
+
   return (
     <>
       {loading ? (

@@ -16,7 +16,13 @@ export default function Scm(params) {
   let ele = scm.map((eve) => {
     return (
       <a href={eve.link}>
-        <img alt={eve.name} key={eve.id} className="Img-Scm" src={eve.img} />
+        <img
+          alt={eve.name}
+          Key={eve.id}
+          key={eve.id}
+          className="Img-Scm"
+          src={eve.img}
+        />
       </a>
     );
   });

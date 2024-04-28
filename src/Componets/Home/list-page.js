@@ -1,23 +1,37 @@
-import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 export default function ListPage({ list }) {
+  let [lis, setLis] = useState({
+    projects: "projects",
+    feedbacks: "feedbacks",
+    about: "about",
+  });
+  let locat = useLocation();
+  useEffect(() => {
+    let liss = { ...lis };
+    const ph = locat.pathname;
+    ph !== "/home"
+      ? (lis[ph.split("/")[1]] = "Home")
+      : (lis[ph.split("/")[1]] = ph.split("/")[1]);
+    setLis(liss);
+  }, []);
   return (
     <div className={list ? "lista list-on" : "lista list-off"}>
       {
-        <Link to="/projects" id="li">
+        <Link to={"/" + lis["projects"]} id="li">
           <h2 className={list ? "pagelis prg-on" : "pagelis prg-off"} id="prg">
-            projects
+            {lis["projects"]}
           </h2>
         </Link>
       }
-      <Link to="/feedbacks" id="li">
+      <Link to={"/" + lis["feedbacks"]} id="li">
         <h2 className={list ? "pagelis fbs-on" : "pagelis fbs-off"} id="fbs">
-          feedbacks
+          {lis["feedbacks"]}
         </h2>
       </Link>
-      <Link to="/about" id="li">
+      <Link to={"/" + lis["about"]} id="li">
         <h2 className={list ? "pagelis abt-on" : "pagelis abt-off"} id="abt">
-          about
+          {lis["about"]}
         </h2>
       </Link>
     </div>
