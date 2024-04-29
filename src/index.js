@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Projects from "./Componets/pages/projects";
 import About from "./Componets/pages/about";
 import Feedbacks from "./Componets/pages/feedbacks";
+import FeedAPI from "./Componets/pages/apifeed";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/feedbacks" element={<Feedbacks />} />
+        <Route path="/data/api/feedbacks" element={<FeedAPI />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

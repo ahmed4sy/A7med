@@ -1,0 +1,50 @@
+.feeds {
+    display: flex;
+    position: fixed;
+    background-color: #13668aeb;
+    padding: 50px 25px;
+    border-radius: 25px;
+    left: 32%;
+    top: 30%;
+    width: auto;
+    box-shadow:1px 1px 10px 1px blueviolet;
+
+}.cous{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(29, 38, 35);
+    text-align: center;
+
+
+
+}.cous *{
+    border-bottom: white solid 2px;
+}.test {
+    width: 500px;
+    background-color: blueviolet;
+    height: 5000px;
+}.feedone{
+    background-color: #012030;
+    border-bottom: 2px #13668acc solid;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #03161fcf;
+}::-webkit-scrollbar-thumb{
+    background-color: #438aa8cc;
+}
+.contFeedpara{
+    margin-right: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}.contFeedpara .pp {
+    margin-top: 25px;
+}.contFeedpara pre {
+    margin-bottom: 0;
+}.contFeedpara h1 {
+    margin-top: 5px;
+}

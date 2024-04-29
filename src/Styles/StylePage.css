@@ -330,7 +330,7 @@ display: flex;
     opacity: 0;
     animation: opensite-foo 1s 1 forwards 0.2s;
     left: 70px;
-    bottom: 50px;
+    bottom: 25px;
     transition: .1s;
 }.footer:hover {
     color: beige;
