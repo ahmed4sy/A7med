@@ -4,9 +4,10 @@ import axios from "axios";
 export default function Page({ children }) {
   let [popUp, SetpopUp] = useState("pop-down");
   let [Feedback, setFeedback] = useState("");
-  const [width, setWidth] = useState(window.innerWidth);
+
   let [classs, setClasss] = useState("");
   let [feedcss, setfeedcss] = useState("");
+  const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     setWidth(window.innerWidth);
     if (width <= 500) {
