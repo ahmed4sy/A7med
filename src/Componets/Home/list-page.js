@@ -8,10 +8,9 @@ export default function ListPage({ list }) {
     about: "about",
   });
   let locat = useLocation();
+  const ph = locat.pathname;
   useEffect(() => {
     let liss = { ...lis };
-    const ph = locat.pathname;
-    console.log("n");
     ph !== "/home"
       ? (lis[ph.split("/")[1]] = "Home")
       : (lis[ph.split("/")[1]] = ph.split("/")[1]);
