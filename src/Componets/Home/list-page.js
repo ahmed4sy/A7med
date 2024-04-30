@@ -10,11 +10,13 @@ export default function ListPage({ list }) {
   useEffect(() => {
     let liss = { ...lis };
     const ph = locat.pathname;
+    console.log("n");
     ph !== "/home"
       ? (lis[ph.split("/")[1]] = "Home")
       : (lis[ph.split("/")[1]] = ph.split("/")[1]);
     setLis(liss);
   }, []);
+
   return (
     <div className={list ? "lista list-on" : "lista list-off"}>
       {

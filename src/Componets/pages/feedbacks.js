@@ -20,6 +20,7 @@ export default function Feedbacks(params) {
         </p>
         <iframe
           frameBorder={"0"}
+          width={"1"}
           className="cous"
           src="/data/api/feedbacks"
           title="feed"
