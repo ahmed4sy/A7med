@@ -8,6 +8,7 @@ import "./Styles/App.css";
 import "./Styles/StylePage.css";
 import { useEffect, useState } from "react";
 function App() {
+  //app
   const imgsP = TempData.data;
   let arrImgs = imgsP.map((data) => {
     return (
