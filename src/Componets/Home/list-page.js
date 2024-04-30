@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 export default function ListPage({ list }) {
+  // what
   let [lis, setLis] = useState({
     projects: "projects",
     feedbacks: "feedbacks",

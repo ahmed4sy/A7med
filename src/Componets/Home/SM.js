@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SCME from "./../../Data/social media.json";
 export default function Scm(params) {
+  //hah
   const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("Scm");
   const scm = SCME.data;

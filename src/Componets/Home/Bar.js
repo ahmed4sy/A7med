@@ -2,6 +2,7 @@ import { useState } from "react";
 import ListPage from "./list-page";
 export default function Bar() {
   let [Onlis, setOnlis] = useState(false);
+
   return (
     <div className="Head">
       <h1 className="Title-Page">A7med</h1>

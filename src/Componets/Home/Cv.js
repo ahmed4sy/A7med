@@ -3,7 +3,7 @@ import Cvdata from "../../Data/Datacv.json";
 export default function Cv(params) {
   const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("");
-
+  //temp
   useEffect(() => {
     setWidth(window.innerWidth);
     if (width <= 500) {

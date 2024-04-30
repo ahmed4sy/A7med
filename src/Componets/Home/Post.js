@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+// nan
 export default function Post({ namep, Key, link }) {
   let [clana, setCla] = useState();
   useEffect(() => {
