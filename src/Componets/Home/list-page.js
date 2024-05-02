@@ -12,8 +12,8 @@ export default function ListPage({ list }) {
     let liss = { ...lis };
     const ph = window.location.pathname;
     ph !== "/home"
-      ? (lis[ph.split("/")[1]] = "Home")
-      : (lis[ph.split("/")[1]] = ph.split("/")[1]);
+      ? (liss[ph.split("/")[1]] = "Home")
+      : (liss[ph.split("/")[1]] = ph.split("/")[1]);
     setLis(liss);
   }, []);
 
