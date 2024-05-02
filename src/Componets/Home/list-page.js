@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function ListPage({ list }) {
   // what
   let [lis, setLis] = useState({
@@ -7,10 +7,10 @@ export default function ListPage({ list }) {
     feedbacks: "feedbacks",
     about: "about",
   });
-  let locat = useLocation();
-  const ph = locat.pathname;
+
   useEffect(() => {
     let liss = { ...lis };
+    const ph = window.location.pathname;
     ph !== "/home"
       ? (lis[ph.split("/")[1]] = "Home")
       : (lis[ph.split("/")[1]] = ph.split("/")[1]);

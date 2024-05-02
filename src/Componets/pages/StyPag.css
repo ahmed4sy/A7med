@@ -52,3 +52,81 @@
 }.contFeedpara h1 {
     margin-top: 5px;
 }
+.ps {
+    margin-top: 0;
+}.pp {
+    margin-bottom: 5px;
+}
+
+.FormAbout{
+    position: fixed;
+    background-color: #012030;
+    left: 500px;
+    top: 150px;
+    height: 0;
+    padding: 20px 50px;
+    border-radius: 25px;
+    border: #438aa8cc solid 5px;
+    opacity: 0;
+    animation: FormAbout 1s 1 forwards 0.2s;
+
+
+
+}.FormAbout *{
+    opacity: 0;
+    animation: opensite-cv 1s 1 forwards 0.2s;
+}
+.FormAbout #prof {
+    display: inline-block;
+    width: 150px;
+    border-radius: 100px;
+    margin-right: 25px;
+}.FormAbout .git {
+    width: 40px;
+    border:#438aa8cc 2px solid;
+
+}.FormAbout div {
+    display: inline-block;
+}.FormAbout div a {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.PrgLang {
+    position: fixed;
+    background-color: #012030;
+    padding: 20px 50px;
+    border-radius: 25px;
+    border: #438aa8cc solid 5px;
+    text-align: center;
+    left: 550px;
+    top: 400px;
+    height: 0;
+    opacity: 0;
+    animation: FormAbout 1s 1 forwards 1s;
+}.PrgLang *{
+    opacity: 0;
+    animation: opensite-cv 1s 1 forwards 1s;
+}
+.PrgLang button {
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    font-size: 25px;
+    font-family:monospace;
+}.PrgLang button:hover {
+    background-color:aqua ;
+}
+.inline {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+@keyframes FormAbout{
+    0%{
+        opacity: 0;
+        height: 0;
+    }100%{
+        opacity: 1;
+        height: 160px;
+    }
+}

@@ -5,7 +5,10 @@ export default function FeedAPI(params) {
   let [feeds, setFeeds] = useState([]);
   let APIFeed = async () => {
     const fee = axios.get("https://aghshu.pythonanywhere.com/api/feedback");
-    setFeeds((await fee).data.data);
+
+    fee.data
+      ? setFeeds((await fee).data.data)
+      : setFeeds(["Intrnet Failed", "XXX", "XXX", "XXX", "XXX"]);
   };
   useEffect(() => {
     APIFeed();

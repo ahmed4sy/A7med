@@ -14,9 +14,8 @@ export default function Feedbacks(params) {
     <>
       <div className={disp}>
         <p className="contFeedpara">
-          <pre>comment</pre>
-          <h1>Ahmed yousif</h1>
-          <p className="pp">شكرا الى كل من اعجبه موقعي</p>
+          <p className="pp">شكرا الى كل من اعجبه موقعي يمكنك</p>
+          <p className="ps">المرور على باقي الصفحات, تواصل معي</p>
         </p>
         <iframe
           frameBorder={"0"}
