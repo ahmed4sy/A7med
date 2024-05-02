@@ -3,13 +3,17 @@ import "./StyPag.css";
 import axios from "axios";
 export default function FeedAPI(params) {
   let [feeds, setFeeds] = useState([]);
-  let APIFeed = async () => {
-    const fee = axios.get("https://aghshu.pythonanywhere.com/api/feedback");
 
-    fee.data
-      ? setFeeds((await fee).data.data)
-      : setFeeds(["Intrnet Failed", "XXX", "XXX", "XXX", "XXX"]);
+  let APIFeed = async () => {
+    try {
+      const fee = axios.get("https://aghshu.pythonanywhere.com/api/feedback");
+      setFeeds((await fee).data.data);
+    } catch (err) {
+      setFeeds(["internet Failed", "XXX", "XXX", "XXX", "XXX"]);
+      console.log(feeds);
+    }
   };
+
   useEffect(() => {
     APIFeed();
   }, []);
