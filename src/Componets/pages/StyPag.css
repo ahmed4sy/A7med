@@ -61,7 +61,7 @@
 .FormAbout{
     position: fixed;
     background-color: #012030;
-    left: 500px;
+    left: 520px;
     top: 150px;
     height: 0;
     padding: 20px 50px;
@@ -81,6 +81,7 @@
     width: 150px;
     border-radius: 100px;
     margin-right: 25px;
+    margin-bottom: 25px;
 }.FormAbout .git {
     width: 40px;
     border:#438aa8cc 2px solid;
@@ -88,8 +89,7 @@
 }.FormAbout div {
     display: inline-block;
 }.FormAbout div a {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 50px;
 }
 .PrgLang {
     position: fixed;
@@ -107,19 +107,36 @@
     opacity: 0;
     animation: opensite-cv 1s 1 forwards 1s;
 }
-.PrgLang button {
-    width: 150px;
-    height: 40px;
-    border-radius: 25px;
-    border: none;
+.ImgsCount{
+    width: 50px;
+}
+.butRank {
+    position: fixed;
+    width: 22.9%;
+    left: 555px;
+    top: 530px;
+    text-align: center;
+    background-color:#012030;
+    border-top: white solid 2px;
+    border-radius: 0 0 25px 25px;
     font-size: 25px;
     font-family:monospace;
-}.PrgLang button:hover {
+    transition: .5s;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    animation: ButRank 1s 1 forwards 1s;
+}.butRank:hover{
+    background-color:#438aa8cc ;
+}.ImgsCou{
+    margin-top: 25px;
+}.butRank p{
+    margin: 0;
+    margin-top: 25px;
+}.PrgLang label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}.PrgLan:hover {
     background-color:aqua ;
-}
-.inline {
-    display: inline-block;
-    margin-bottom: 15px;
 }
 @keyframes FormAbout{
     0%{
@@ -128,5 +145,152 @@
     }100%{
         opacity: 1;
         height: 160px;
+    }
+}@keyframes ButRank{
+    0%{
+        opacity: 0;
+        height: 0;
+    }100%{
+        opacity: 1;
+        height: 75px;
+    }
+}.PhoneDisplay {
+    left: 0;
+}.animateRankProf{
+    position: fixed;
+    background-color: #012030;
+    left: 520px;
+    top: 150px;
+    height: 160px;
+    padding: 20px 50px;
+    border-radius: 25px;
+    border: #438aa8cc solid 5px;
+    animation: animateRankProf 1s 1 forwards 0.5s;
+}.animateRankProf #prof {
+    display: inline-block;
+    width: 150px;
+    border-radius: 100px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}.animateRankProf .git {
+    width: 40px;
+    border:#438aa8cc 2px solid;
+
+}.animateRankProf div {
+    display: inline-block;
+}.animateRankProf div a {
+    margin-left: 50px;
+}
+
+.animateRankPrg {
+    position: fixed;
+    background-color: #012030;
+    padding: 20px 48px;
+    border-radius: 25px;
+    border: #438aa8cc solid 5px;
+    text-align: center;
+    left: 550px;
+    top: 400px;
+    height: 170px;
+    animation: animateRankPrg 1s 1 forwards 1s;
+}.animateRankPrg .ImgsCou *{
+    animation: PrgLANAnimate 3s 1 forwards 1s;
+}
+.animateRankBut{
+    position: fixed;
+    width: 23%;
+    left: 555px;
+    top: 535px;
+    animation: animateRankBut .5s 1 forwards 1s;
+    text-align: center;
+    background-color:#012030;
+    border-top: white solid 2px;
+    border-radius: 0 0 25px 25px;
+    font-size: 25px;
+    font-family:monospace;
+    transition: .5s;
+    cursor: pointer;
+}.animateRankBut:hover{
+    background-color:#438aa8cc ;
+}
+.skilemy{
+    position: fixed;
+    width: 180px;
+    height: 35px;
+    left: 900px;
+    top: 340px;
+    background-color: aliceblue;
+    border: 3px #012030  solid;
+}.js{
+    top: 420px;
+}
+@keyframes animateRankProf{
+    0%{
+        left: 520px;
+        top: 150px;
+    }50% {
+        left: 300px;
+        top: 150px;
+    }100%{
+        left: 300px;
+        top: 300px;
+    }
+}@keyframes animateRankPrg{
+    0%{
+        left: 550px;
+        height: 160px;
+
+    }50%{
+        left: 750px;
+        top: 400px;
+        height: 160px;
+    }100%{
+        left: 750px;
+        top: 250px;
+        height: 300px;
+    }
+}@keyframes animateRankBut {
+    0%{
+        left: 550px;
+    }50%{
+        top: 530px;
+    }100%{
+        top: 515px;
+        left: 755px;
+    }
+}@keyframes PrgLANAnimate{
+    0%{}
+    100%{
+        display: block;
+        width: 80px;
+    }
+}
+.CouShowSkill{
+    opacity: 0;
+    animation: opacity 0.5s 1 forwards 2s;
+}.countPy{
+    width: 0%;
+    height: 100%;
+    background-color:#438aa8;
+    animation: countPy 0.5s 1 forwards 2.5s;
+}.countJs{
+    width: 0%;
+    height: 100%;
+    background-color:#438aa8;
+    animation: countJs 0.5s 1 forwards 2.5s;
+}
+@keyframes countPy{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 50%;
+    }
+}@keyframes countJs{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 25%;
     }
 }
