@@ -112,7 +112,7 @@
 }
 .butRank {
     position: fixed;
-    width: 22.9%;
+    width: 352px;
     left: 555px;
     top: 530px;
     text-align: center;
@@ -121,7 +121,6 @@
     border-radius: 0 0 25px 25px;
     font-size: 25px;
     font-family:monospace;
-    transition: .5s;
     cursor: pointer;
     opacity: 0;
     height: 0;
@@ -137,6 +136,14 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }.PrgLan:hover {
     background-color:aqua ;
+}
+.animateRankPrgPhone{
+    opacity: 1;
+    height: 160px;
+    animation: animateRankPrgPhone 1s 1 forwards .5s;
+}.animateRankPrgPhone .ImgsCou *{
+    opacity: 1;
+    animation: PrgLANAnimate2 3s 1 forwards 1s;
 }
 @keyframes FormAbout{
     0%{
@@ -198,7 +205,7 @@
 }
 .animateRankBut{
     position: fixed;
-    width: 23%;
+    width: 353px;
     left: 555px;
     top: 535px;
     animation: animateRankBut .5s 1 forwards 1s;
@@ -249,7 +256,25 @@
         top: 250px;
         height: 300px;
     }
-}@keyframes animateRankBut {
+}
+@keyframes animateRankPrgPhone{
+    0%{
+        opacity: 1;
+        height: 160px;
+    }
+    100%{opacity: 1;
+        height: 250px;
+    }
+}.RankPhone{
+    opacity: 1;
+    height: 75px;
+    animation: PhoneBut 1s 1 forwards .5s;
+}
+@keyframes PhoneBut{
+    0%{  top: 540px }
+    100%{  top: 630px}
+}
+@keyframes animateRankBut {
     0%{
         left: 550px;
     }50%{
@@ -263,6 +288,12 @@
     100%{
         display: block;
         width: 80px;
+    }
+}@keyframes PrgLANAnimate2{
+    0%{}
+    100%{
+        display: block;
+        width: 65px;
     }
 }
 .CouShowSkill{

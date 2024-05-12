@@ -1,28 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./Styles/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Projects from "./Componets/pages/projects";
 import About from "./Componets/pages/about";
 import Feedbacks from "./Componets/pages/feedbacks";
 import FeedAPI from "./Componets/pages/apifeed";
+import HeadContext, { Word } from "./HeadPage/HeadContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<TApp />} />
-        <Route path="/*" element={<NOTfound />} />
-        <Route path="/home" element={<App />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/feedbacks" element={<Feedbacks />} />
-        <Route path="/data/api/feedbacks" element={<FeedAPI />} />
-      </Routes>
-    </BrowserRouter>
+    <HeadContext>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<TApp />} />
+          <Route path="/*" element={<NOTfound />} />
+          <Route path="/home" element={<App />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/feedbacks" element={<Feedbacks />} />
+          <Route element={<Prodict />}>
+            <Route path="/api/feedbacks" element={<FeedAPI />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HeadContext>
   </React.StrictMode>
 );
 function NOTfound(params) {
@@ -41,10 +52,11 @@ function NOTfound(params) {
   );
 }
 function TApp() {
-  let nav = useNavigate();
-  useEffect(() => {
-    nav("/home");
-  }, [nav]);
+  return <Navigate to={"/home"} />;
+}
+function Prodict() {
+  let { Prodict } = useContext(Word);
+  return !Prodict ? <Outlet /> : <Navigate to={"/home"} />;
 }
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -10,7 +10,6 @@ export default function FeedAPI(params) {
       setFeeds((await fee).data.data);
     } catch (err) {
       setFeeds(["internet Failed", "XXX", "XXX", "XXX", "XXX"]);
-      console.log(feeds);
     }
   };
 

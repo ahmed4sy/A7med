@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SCME from "./../../Data/social media.json";
+import { Word } from "../../HeadPage/HeadContext";
 export default function Scm(params) {
-  //hah
-  const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("Scm");
   const scm = SCME.data;
+  const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setClasss("Scmp");
-    }
-    if (width >= 500) {
-      setClasss("Scm");
-    }
-  }, [width]);
+    setClasss("Scm");
+    PhoneDisplay("ConstStyle", [setClasss], ["Scmp"]);
+  }, [PhoneDisplay]);
   let ele = scm.map((eve) => {
     return (
-      <a href={eve.link}>
-        <img
-          alt={eve.name}
-          Key={eve.id}
-          key={eve.id}
-          className="Img-Scm"
-          src={eve.img}
-        />
+      <a href={eve.link} key={eve.id}>
+        <img alt={eve.name} key={eve.id} className="Img-Scm" src={eve.img} />
       </a>
     );
   });

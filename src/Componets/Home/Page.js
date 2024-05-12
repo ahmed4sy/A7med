@@ -1,24 +1,24 @@
 import Bar from "./Bar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { Word } from "../../HeadPage/HeadContext";
 export default function Page({ children }) {
   let [popUp, SetpopUp] = useState("pop-down");
   let [Feedback, setFeedback] = useState("");
   // tee
-  let [classs, setClasss] = useState("");
+  let [Footer, setFooter] = useState("");
   let [feedcss, setfeedcss] = useState("");
-  const [width, setWidth] = useState(window.innerWidth);
+  const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setClasss(" footer footerp ");
-      setfeedcss(" feedback feedbackp ");
-    }
-    if (width >= 500) {
-      setClasss("footer");
-      setfeedcss(" feedback");
-    }
-  }, [width]);
+    setFooter(" footer ");
+    setfeedcss(" feedback ");
+    PhoneDisplay(
+      "ConstStyle",
+      [setFooter, setfeedcss],
+      [" footer footerp ", " feedback feedbackp "]
+    );
+  }, [PhoneDisplay]);
+
   return (
     <div className="Page">
       {children}
@@ -30,7 +30,7 @@ export default function Page({ children }) {
         setFeedback={setFeedback}
       />
       <footer
-        className={classs}
+        className={Footer}
         onClick={() => {
           popUp === "pop-up" ? SetpopUp("pop-down") : SetpopUp("pop-up");
         }}
@@ -48,11 +48,9 @@ function PopFB({ Feedback, feedcss, setFeedback, pU, sPU }) {
       onSubmit={(e) => {
         e.preventDefault();
         try {
-          axios
-            .post("https://aghshu.pythonanywhere.com/api/feedback", {
-              feed: Feedback,
-            })
-            .then((res) => console.log(res));
+          axios.post("https://aghshu.pythonanywhere.com/api/feedback", {
+            feed: Feedback,
+          });
         } catch (err) {
           console.log("Error");
         }

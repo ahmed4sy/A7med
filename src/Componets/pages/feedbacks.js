@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Bar from "../Home/Bar";
 import "./StyPag.css";
+import { Word } from "../../HeadPage/HeadContext";
 export default function Feedbacks(params) {
-  const [width, setWidth] = useState(window.innerWidth);
   let [disp, setDis] = useState("feeds");
+  const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setDis("feeds fsp");
-    }
-  }, [width]);
+    setDis("feeds");
+    PhoneDisplay([setDis], ["feeds fsp"]);
+  }, [PhoneDisplay]);
+
   return (
     <>
       <div className={disp}>
@@ -21,7 +21,7 @@ export default function Feedbacks(params) {
           frameBorder={"0"}
           width={"1"}
           className="cous"
-          src="/data/api/feedbacks"
+          src="/api/feedbacks"
           title="feed"
         ></iframe>
       </div>

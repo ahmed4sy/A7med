@@ -6,23 +6,32 @@ import Template from "./Componets/Home/Container";
 import TempData from "./Data/templates.json";
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Word } from "./HeadPage/HeadContext";
 function App() {
   //app
+  // let { Viwes } = useContext(Word);
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("ViwePage")) {
+  //     sessionStorage.setItem("ViwePage", true);
+  //     axios.post("http://127.0.0.1:8080/api/feedback", {
+  //       viwe: Viwes,
+  //     });
+  //   }
+  // }, [Viwes]);
+  let { setProdict } = useContext(Word);
+  useEffect(() => setProdict(true), [setProdict]);
   const imgsP = TempData.data;
   let arrImgs = imgsP.map((data) => {
     return (
       <Post Key={data.id} namep={data.img} key={data.id} link={data.link} />
     );
   });
-  const [width, setWidth] = useState(window.innerWidth);
   let [loa, setLoa] = useState("sizeC");
+  const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setLoa("sizeP");
-    }
-  }, [width]);
+    PhoneDisplay([setLoa], ["sizeP"]);
+  }, [PhoneDisplay]);
   let [loading, setloading] = useState(false);
   useEffect(() => {
     if (!sessionStorage.getItem("loading")) {

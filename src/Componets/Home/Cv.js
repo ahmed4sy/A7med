@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cvdata from "../../Data/Datacv.json";
+import { Word } from "../../HeadPage/HeadContext";
 export default function Cv(params) {
-  const [width, setWidth] = useState(window.innerWidth);
   let [classs, setClasss] = useState("");
-  //temp
+  const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setClasss("CVp");
-    }
-    if (width >= 500) {
-      setClasss("CV");
-    }
-  }, [width]);
+    setClasss("CV");
+    PhoneDisplay("ConstStyle", [setClasss], ["CVp"]);
+  }, [PhoneDisplay]);
   return (
     <div className={classs + " color-back"}>
       <img src="/pro.png" alt="pro" />

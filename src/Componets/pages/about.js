@@ -1,34 +1,68 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Bar from "../Home/Bar";
 import Alret from "../static/alret";
+import { Word } from "../../HeadPage/HeadContext";
 
 export default function About(params) {
-  const [width, setWidth] = useState(window.innerWidth);
   let [ClickRank, setClickRank] = useState({ text: "Rank", click: false });
   let [ShowPropAlret, setShowPropAlret] = useState([false, false]);
-  const [Phd, setPhd] = useState("");
+  let { setProdict, PhoneDisplay } = useContext(Word);
+  let [DynamicStyleSheetBut, setDynamicStyleSheetBut] = useState({});
+  let [logDisplayPhone, setlogDisplayPhone] = useState("desktop");
   useEffect(() => {
-    setWidth(window.innerWidth);
-    if (width <= 500) {
-      setPhd("PhoneDisplay");
-    }
-  }, [width]);
+    PhoneDisplay("DynamicStyle", setDynamicStyleSheetBut, (setdata) => {
+      if (window.innerWidth >= 1200) {
+        setdata({ left: 520 });
+      } else if (window.innerWidth <= 500) {
+        setdata({
+          left: window.innerWidth / 10,
+          padding: (20 / 2, 50 / 2),
+        });
+      } else {
+        setdata({ left: window.innerWidth / 4 });
+      }
+    }).then((r) => setlogDisplayPhone(r));
+  }, [PhoneDisplay]);
+  useEffect(() => console.log(logDisplayPhone), [logDisplayPhone]);
+  useEffect(() => setProdict(true), [setProdict]);
   return (
     <>
-      <FormAbout Phd={Phd} ClickRank={ClickRank} />
+      <FormAbout
+        ClickRank={ClickRank}
+        style={DynamicStyleSheetBut}
+        logDisplayPhone={logDisplayPhone}
+      />
       <PrgLang
-        Phd={Phd}
         setShowPropAlret={setShowPropAlret}
+        logDisplayPhone={logDisplayPhone}
+        style={{
+          ...DynamicStyleSheetBut,
+          left: DynamicStyleSheetBut.left + 22,
+        }}
         ClickRank={ClickRank}
       />
       <div
-        className={ClickRank.click ? "animateRankBut" : "butRank"}
+        className={
+          ClickRank.click && logDisplayPhone === "desktop"
+            ? "animateRankBut"
+            : ClickRank.click && logDisplayPhone === "phone"
+            ? "butRank RankPhone"
+            : "butRank"
+        }
         style={
-          Phd !== ""
+          logDisplayPhone !== "phone"
             ? {
-                left: "25px",
+                ...DynamicStyleSheetBut,
+                left: DynamicStyleSheetBut.left + 27,
+                padding: 0,
               }
-            : {}
+            : {
+                ...DynamicStyleSheetBut,
+                left: DynamicStyleSheetBut.left + 27,
+                padding: 0,
+                width: 302,
+                top: 540,
+              }
         }
         onClick={() =>
           ClickRank.click
@@ -48,8 +82,37 @@ export default function About(params) {
         ""
       )}
       {ShowPropAlret[1] ? <Alret text={"JavaScript"} pos={[730, 420]} /> : ""}
-
-      {ClickRank.click ? (
+      {PhoneDisplay === "phone" ? (
+        ClickRank.click ? (
+          <div className="CouShowSkill">
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: "900px",
+                top: "300px",
+              }}
+            >
+              Python
+            </p>
+            <div className="skilemy python">
+              <div className="countPy"></div>
+            </div>
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: "1050px",
+                top: "370px",
+              }}
+            >
+              50%
+            </p>
+          </div>
+        ) : (
+          ""
+        )
+      ) : ClickRank.click ? (
         <div className="CouShowSkill">
           <p
             style={{
@@ -78,14 +141,15 @@ export default function About(params) {
       ) : (
         ""
       )}
+      {}
       {ClickRank.click ? (
         <div className="CouShowSkill">
           <p
             style={{
               fontFamily: "cursive",
               position: "fixed",
-              left: "900px",
-              top: "380px",
+              left: 900 / 800,
+              top: 380,
             }}
           >
             JavaScript
@@ -97,8 +161,8 @@ export default function About(params) {
             style={{
               fontFamily: "cursive",
               position: "fixed",
-              left: "1050px",
-              top: "450px",
+              left: 1050 - 800,
+              top: 450,
             }}
           >
             25%
@@ -110,11 +174,14 @@ export default function About(params) {
     </>
   );
 }
-function FormAbout({ Phd, ClickRank }) {
+function FormAbout({ ClickRank, style, logDisplayPhone }) {
   return (
     <div
+      style={style}
       className={
-        ClickRank.click ? "animateRankProf " + Phd : "FormAbout " + Phd
+        ClickRank.click && logDisplayPhone === "desktop"
+          ? "animateRankProf "
+          : "FormAbout "
       }
     >
       <img alt="profile" id="prof" src="20230508_190001.jpg" />
@@ -137,10 +204,17 @@ function FormAbout({ Phd, ClickRank }) {
     </div>
   );
 }
-function PrgLang({ Phd, setShowPropAlret, ClickRank }) {
+function PrgLang({ setShowPropAlret, ClickRank, style, logDisplayPhone }) {
   return (
     <div
-      className={ClickRank.click ? "animateRankPrg " + Phd : "PrgLang " + Phd}
+      className={
+        ClickRank.click && logDisplayPhone === "desktop"
+          ? "animateRankPrg "
+          : ClickRank.click && logDisplayPhone === "phone"
+          ? "PrgLang animateRankPrgPhone "
+          : "PrgLang "
+      }
+      style={style}
     >
       <label>Supported Programming languages:</label>
       <div className="ImgsCou">
