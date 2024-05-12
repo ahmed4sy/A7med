@@ -15,7 +15,7 @@ export default function About(params) {
         setdata({ left: 520 });
       } else if (window.innerWidth <= 500) {
         setdata({
-          left: window.innerWidth / 10,
+          left: window.innerWidth / 10 - 15,
           padding: (20 / 2, 50 / 2),
         });
       } else {
@@ -60,7 +60,7 @@ export default function About(params) {
                 ...DynamicStyleSheetBut,
                 left: DynamicStyleSheetBut.left + 27,
                 padding: 0,
-                width: 302,
+                width: 306,
                 top: 540,
               }
         }
@@ -73,6 +73,7 @@ export default function About(params) {
         <p>{ClickRank.text}</p>
       </div>
       <Bar />
+
       {ShowPropAlret[0] ? (
         <Alret
           text={"Python"}
@@ -82,8 +83,41 @@ export default function About(params) {
         ""
       )}
       {ShowPropAlret[1] ? <Alret text={"JavaScript"} pos={[730, 420]} /> : ""}
-      {PhoneDisplay === "phone" ? (
-        ClickRank.click ? (
+
+      {ClickRank.click ? (
+        logDisplayPhone === "phone" ? (
+          <div className="CouShowSkill">
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 900 - 750,
+                top: 300 + 145,
+              }}
+            >
+              Python
+            </p>
+            <div
+              className="skilemy python"
+              style={{
+                left: 900 - 750,
+                top: 340 + 140,
+              }}
+            >
+              <div className="countPy"></div>
+            </div>
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 1050 - 750,
+                top: 370 + 120 + 20,
+              }}
+            >
+              50%
+            </p>
+          </div>
+        ) : (
           <div className="CouShowSkill">
             <p
               style={{
@@ -109,65 +143,71 @@ export default function About(params) {
               50%
             </p>
           </div>
-        ) : (
-          ""
         )
-      ) : ClickRank.click ? (
-        <div className="CouShowSkill">
-          <p
-            style={{
-              fontFamily: "cursive",
-              position: "fixed",
-              left: "900px",
-              top: "300px",
-            }}
-          >
-            Python
-          </p>
-          <div className="skilemy python">
-            <div className="countPy"></div>
-          </div>
-          <p
-            style={{
-              fontFamily: "cursive",
-              position: "fixed",
-              left: "1050px",
-              top: "370px",
-            }}
-          >
-            50%
-          </p>
-        </div>
       ) : (
         ""
       )}
-      {}
+
       {ClickRank.click ? (
-        <div className="CouShowSkill">
-          <p
-            style={{
-              fontFamily: "cursive",
-              position: "fixed",
-              left: 900 / 800,
-              top: 380,
-            }}
-          >
-            JavaScript
-          </p>
-          <div className="skilemy js">
-            <div className="countJs"></div>
+        logDisplayPhone === "phone" ? (
+          <div className="CouShowSkill">
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 900 - 750,
+                top: 380 + 135,
+              }}
+            >
+              JavaScript
+            </p>
+            <div
+              className="skilemy js"
+              style={{
+                left: 900 - 750,
+                top: 420 + 135,
+              }}
+            >
+              <div className="countJs"></div>
+            </div>
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 1050 - 750,
+                top: 450 + 120 + 15,
+              }}
+            >
+              25%
+            </p>
           </div>
-          <p
-            style={{
-              fontFamily: "cursive",
-              position: "fixed",
-              left: 1050 - 800,
-              top: 450,
-            }}
-          >
-            25%
-          </p>
-        </div>
+        ) : (
+          <div className="CouShowSkill">
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 900,
+                top: 380,
+              }}
+            >
+              JavaScript
+            </p>
+            <div className="skilemy js">
+              <div className="countJs"></div>
+            </div>
+            <p
+              style={{
+                fontFamily: "cursive",
+                position: "fixed",
+                left: 1050,
+                top: 450,
+              }}
+            >
+              25%
+            </p>
+          </div>
+        )
       ) : (
         ""
       )}
