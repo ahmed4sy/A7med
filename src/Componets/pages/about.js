@@ -11,7 +11,7 @@ export default function About(params) {
   useEffect(() => {
     PhoneDisplay("DynamicStyle", setDynamicStyleSheetBut, (setdata) => {
       if (window.innerWidth >= 1200) {
-        setdata({ left: 520 });
+        setdata({ left: 550 });
       } else if (window.innerWidth <= 500) {
         setdata({
           left: window.innerWidth / 10 - 15,

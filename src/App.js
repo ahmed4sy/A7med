@@ -1,9 +1,8 @@
 import Page from "./Componets/Home/Page";
 import Cv from "./Componets/Home/Cv";
 import Scm from "./Componets/Home/SM";
-import Post from "./Componets/Home/Post";
 import Template from "./Componets/Home/Container";
-import TempData from "./Data/templates.json";
+
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
 import { useContext, useEffect, useState } from "react";
@@ -21,12 +20,7 @@ function App() {
   // }, [Viwes]);
   let { setProdict } = useContext(Word);
   useEffect(() => setProdict(true), [setProdict]);
-  const imgsP = TempData.data;
-  let arrImgs = imgsP.map((data) => {
-    return (
-      <Post Key={data.id} namep={data.img} key={data.id} link={data.link} />
-    );
-  });
+  let { arrImgs } = useContext(Word);
   let [loa, setLoa] = useState("sizeC");
   const { PhoneDisplay } = useContext(Word);
 

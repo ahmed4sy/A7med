@@ -1,4 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
+import TempData from "./../Data/templates.json";
+import Post from "../Componets/Home/Post";
+
 export const Word = createContext(null);
 
 let HeadContext = ({ children }) => {
@@ -6,19 +9,15 @@ let HeadContext = ({ children }) => {
 
   const [stateBarList, setBarList] = useState({
     turn: false,
-    click: !sessionStorage.getItem("Barlist")
-      ? false
-      : sessionStorage.getItem("Barlist") === "none"
-      ? false
-      : true,
+    click: true,
     type: "defult",
   });
-  useEffect(() => {
-    if (stateBarList.click) {
-      sessionStorage.setItem("Barlist", "tr");
-    }
-  }, [stateBarList.click]);
-
+  const imgsP = TempData.data;
+  let arrImgs = imgsP.map((data) => {
+    return (
+      <Post Key={data.id} namep={data.img} key={data.id} link={data.link} />
+    );
+  });
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth < 500) {
@@ -77,6 +76,7 @@ let HeadContext = ({ children }) => {
     logDisplay,
     stateBarList,
     setBarList,
+    arrImgs,
   };
   return <Word.Provider value={StateWord}>{children}</Word.Provider>;
 };

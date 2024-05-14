@@ -20,7 +20,9 @@ export default function Bar() {
       <h1 className="Title-Page">A7med</h1>
 
       {/* List */}
-      {stateBarList.type === "defult" && !stateBarList.click ? (
+      {logDisplay !== "phone" ? (
+        <BarList stateBarList={stateBarList} />
+      ) : (
         <>
           <div
             className="List-Page"
@@ -40,34 +42,6 @@ export default function Bar() {
           </div>
           <ListPage list={Onlis} />
         </>
-      ) : (
-        ""
-      )}
-      <BarList stateBarList={stateBarList} />
-      {logDisplay !== "phone" ? (
-        <div
-          className={
-            stateBarList.click
-              ? "hideBarList"
-              : (stateBarList.turn || Timeout) && !Onlis
-              ? "AnimateBarListDesk"
-              : "AnimateBarListDeskOut"
-          }
-          onMouseMoveCapture={() => setBarList({ ...stateBarList, turn: true })}
-          onMouseOutCapture={() => setBarList({ ...stateBarList, turn: false })}
-          onClick={() => setBarList({ ...stateBarList, click: true })}
-        >
-          <span
-            style={{
-              position: "fixed",
-              top: 18,
-            }}
-          >
-            ⇦
-          </span>
-        </div>
-      ) : (
-        ""
       )}
     </div>
   );
@@ -88,20 +62,6 @@ function BarList({ stateBarList }) {
           }
         >
           <span>Home</span>
-        </a>
-
-        <a
-          href="/Projects"
-          style={
-            window.location.pathname === "/Projects"
-              ? {
-                  backgroundColor: "#13668a",
-                  animation: "opcStyleShow 1s 1 forwards",
-                }
-              : { animation: "opcStyleShow 1s 1 forwards" }
-          }
-        >
-          <span>Projects</span>
         </a>
 
         <a

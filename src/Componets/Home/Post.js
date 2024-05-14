@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // nan
-export default function Post({ namep, Key, link }) {
+export default function Post({ namep, Key, link, classNam, styleSheet }) {
   let [clana, setCla] = useState();
   useEffect(() => {
     if (Key === 1) {
@@ -13,7 +13,7 @@ export default function Post({ namep, Key, link }) {
   }, [Key]);
   return (
     <a href={link}>
-      <div className={"Post " + clana}>
+      <div className={classNam + " Post " + clana} style={styleSheet}>
         <h1>{namep}</h1>
       </div>
     </a>
