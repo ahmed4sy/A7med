@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import Bar from "../Home/Bar";
 import Alret from "../static/alret";
 import { Word } from "../../HeadPage/HeadContext";
-
 export default function About(params) {
   let [ClickRank, setClickRank] = useState({ text: "Rank", click: false });
   let [ShowPropAlret, setShowPropAlret] = useState([false, false]);
-  let { setProdict, PhoneDisplay } = useContext(Word);
+  let { setProdict, PhoneDisplay, logDisplay } = useContext(Word);
   let [DynamicStyleSheetBut, setDynamicStyleSheetBut] = useState({});
-  let [logDisplayPhone, setlogDisplayPhone] = useState("desktop");
+
   useEffect(() => {
     PhoneDisplay("DynamicStyle", setDynamicStyleSheetBut, (setdata) => {
       if (window.innerWidth >= 1200) {
@@ -21,20 +20,19 @@ export default function About(params) {
       } else {
         setdata({ left: window.innerWidth / 4 });
       }
-    }).then((r) => setlogDisplayPhone(r));
+    });
   }, [PhoneDisplay]);
-  useEffect(() => console.log(logDisplayPhone), [logDisplayPhone]);
   useEffect(() => setProdict(true), [setProdict]);
   return (
     <>
       <FormAbout
         ClickRank={ClickRank}
         style={DynamicStyleSheetBut}
-        logDisplayPhone={logDisplayPhone}
+        logDisplayPhone={logDisplay}
       />
       <PrgLang
         setShowPropAlret={setShowPropAlret}
-        logDisplayPhone={logDisplayPhone}
+        logDisplayPhone={logDisplay}
         style={{
           ...DynamicStyleSheetBut,
           left: DynamicStyleSheetBut.left + 22,
@@ -43,14 +41,14 @@ export default function About(params) {
       />
       <div
         className={
-          ClickRank.click && logDisplayPhone === "desktop"
+          ClickRank.click && logDisplay === "desktop"
             ? "animateRankBut"
-            : ClickRank.click && logDisplayPhone === "phone"
+            : ClickRank.click && logDisplay === "phone"
             ? "butRank RankPhone"
             : "butRank"
         }
         style={
-          logDisplayPhone !== "phone"
+          logDisplay !== "phone"
             ? {
                 ...DynamicStyleSheetBut,
                 left: DynamicStyleSheetBut.left + 27,
@@ -85,7 +83,7 @@ export default function About(params) {
       {ShowPropAlret[1] ? <Alret text={"JavaScript"} pos={[730, 420]} /> : ""}
 
       {ClickRank.click ? (
-        logDisplayPhone === "phone" ? (
+        logDisplay === "phone" ? (
           <div className="CouShowSkill">
             <p
               style={{
@@ -149,7 +147,7 @@ export default function About(params) {
       )}
 
       {ClickRank.click ? (
-        logDisplayPhone === "phone" ? (
+        logDisplay === "phone" ? (
           <div className="CouShowSkill">
             <p
               style={{

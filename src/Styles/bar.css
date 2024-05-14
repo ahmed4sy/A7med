@@ -1,0 +1,105 @@
+
+.AnimateBarListDesk{
+    padding: 5px;
+    background: black;
+    position: fixed;
+    color: white;
+    top: 20px;
+    cursor: pointer;
+    height: 25px;
+    width: 30px;
+    font-size: 35px;
+    border: white 1px solid;
+    border-radius: 100px;
+    animation: AnimateBarListDesk .5s 1 forwards;
+}.AnimateBarListDesk:hover{
+    border: none;
+    background-color: rgb(199, 199, 199);
+    border: black 1px solid;
+    color: black;
+}
+.hideBarList{
+    padding: 5px;
+    background: black;
+    position: fixed;
+    color: white;
+    top: 20px;
+    cursor: pointer;
+    height: 25px;
+    width: 30px;
+    font-size: 35px;
+    border: white 1px solid;
+    border-radius: 100px;
+    animation: hideBarList .8s 1 forwards;
+}
+@keyframes hideBarList{
+    0%{
+        opacity: 1;
+        right: 110px
+    }100%{
+        opacity: 0;
+        right: 400px;
+        display: none;
+    }
+}
+.AnimateBarListDeskOut{
+    padding: 5px;
+    background: black;
+    position: fixed;
+    color: white;
+    top: 20px;
+    cursor: pointer;
+    height: 25px;
+    width: 30px;
+    font-size: 35px;
+    border: white 1px solid;
+    border-radius: 100px;
+    animation: AnimateBarListDeskOut .5s 1 forwards;
+}
+@keyframes AnimateBarListDesk{
+    0%{
+        opacity: 0;
+        right: 80px;
+    }
+    100%{
+        opacity: 1;
+        right: 110px
+    }
+}@keyframes AnimateBarListDeskOut{
+    0%{
+        opacity: 1;
+        right: 110px
+    }
+    100%{
+        opacity: 0;
+        right: 100px;
+        display: hide;
+
+    }
+}
+.ListBarUp{
+    position: fixed;
+    right: 25px;
+    top: 35px;
+    font-size: larger;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}.ListBarUp *{
+    margin-left: 15px;
+    border-bottom: 5px solid #13668a;
+    border-radius: 5px;
+    padding: 0 5px;
+    transition: .1s linear;
+}.ListBarUp *:hover{
+    background-color:#13668a;
+}
+a{
+    text-decoration: none;
+    color: white;
+}.ListBarUp a span{
+    margin: 0;
+}
+@keyframes opcStyleShow{
+    0%{ opacity: 0; }
+    100%{ opacity: 1; }
+}

@@ -1,29 +1,54 @@
 import React, { createContext, useEffect, useState } from "react";
 export const Word = createContext(null);
 
-const HeadContext = ({ children }) => {
+let HeadContext = ({ children }) => {
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth });
 
+  const [stateBarList, setBarList] = useState({
+    turn: false,
+    click: !sessionStorage.getItem("Barlist")
+      ? false
+      : sessionStorage.getItem("Barlist") === "none"
+      ? false
+      : true,
+    type: "defult",
+  });
   useEffect(() => {
-    window.addEventListener("resize", () =>
-      setWindowSize({ width: window.innerWidth })
-    );
+    if (stateBarList.click) {
+      sessionStorage.setItem("Barlist", "tr");
+    }
+  }, [stateBarList.click]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 500) {
+        sessionStorage.setItem("Barlist", "none");
+      }
+      setWindowSize({ width: window.innerWidth });
+    });
   }, []);
 
+  let [logDisplay, setlogDisplayPhone] = useState("desktop");
+  useEffect(() => {
+    if (windowSize.width >= 1200) {
+      setlogDisplayPhone("desktop");
+    } else if (windowSize.width <= 500) {
+      setlogDisplayPhone("phone");
+    } else {
+      setlogDisplayPhone("ipad");
+    }
+  }, [windowSize.width]);
   const PhoneDisplay = async (type, setdata, data) => {
     if (type === "DynamicStyle") {
-      await window.addEventListener("resize", () => {
+      window.addEventListener("resize", () => {
         data(setdata);
       });
       if (windowSize.width >= 1200) {
         await data(setdata);
-        return "desktop";
       } else if (windowSize.width <= 500) {
         await data(setdata);
-        return "phone";
       } else {
         await data(setdata);
-        return "ipad";
       }
     } else if (type === "ConstStyle") {
       if (windowSize.width <= 500) {
@@ -43,7 +68,16 @@ const HeadContext = ({ children }) => {
   // useEffect(() => console.log(Viwes), [Viwes]);
 
   // useEffect(() => APIPromse(), []);
-  let StateWord = { Viwes, Prodict, setProdict, setViwes, PhoneDisplay };
+  let StateWord = {
+    Viwes,
+    Prodict,
+    setProdict,
+    setViwes,
+    PhoneDisplay,
+    logDisplay,
+    stateBarList,
+    setBarList,
+  };
   return <Word.Provider value={StateWord}>{children}</Word.Provider>;
 };
 

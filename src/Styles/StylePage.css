@@ -29,6 +29,8 @@ display: flex;
 }.sizeP img{
     margin-top: 50%;
     margin-left: 5px;
+}#sub{
+    cursor: pointer;
 }
 .Head{
     position: fixed;
@@ -179,8 +181,6 @@ display: flex;
 
 
 
-
-
 .color-back {
     background-color: #012030cf;
     border-top: 10px #13668acc solid;
@@ -323,6 +323,7 @@ display: flex;
 
 
 .footer {
+    cursor: pointer;
     position: fixed;
     padding: 15px;
     width: 250px;

@@ -7,15 +7,36 @@ export default function Feedbacks(params) {
   const { PhoneDisplay } = useContext(Word);
   useEffect(() => {
     setDis("feeds");
-    PhoneDisplay([setDis], ["feeds fsp"]);
+    PhoneDisplay("ConstStyle", [setDis], ["feeds fsp"]);
   }, [PhoneDisplay]);
 
   return (
     <>
       <div className={disp}>
         <p className="contFeedpara">
-          <p className="pp">شكرا الى كل من اعجبه موقعي يمكنك</p>
-          <p className="ps">المرور على باقي الصفحات, تواصل معي</p>
+          <pre
+            className="pp"
+            style={{
+              fontSize: 25,
+              marginTop: 65,
+            }}
+          >
+            <span
+              style={{ display: "block", textAlign: "center", marginBottom: 5 }}
+            >
+              Thanks
+            </span>
+            <span
+              style={{ display: "block", textAlign: "center", marginBottom: 5 }}
+            >
+              for
+            </span>
+            <span
+              style={{ display: "block", textAlign: "center", marginBottom: 5 }}
+            >
+              All
+            </span>
+          </pre>
         </p>
         <iframe
           frameBorder={"0"}

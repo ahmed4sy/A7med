@@ -29,8 +29,9 @@ function App() {
   });
   let [loa, setLoa] = useState("sizeC");
   const { PhoneDisplay } = useContext(Word);
+
   useEffect(() => {
-    PhoneDisplay([setLoa], ["sizeP"]);
+    PhoneDisplay("ConstStyle", [setLoa], ["sizeP"]);
   }, [PhoneDisplay]);
   let [loading, setloading] = useState(false);
   useEffect(() => {
