@@ -26,7 +26,7 @@ let HeadContext = ({ children }) => {
       setWindowSize({ width: window.innerWidth });
     });
   }, []);
-
+  let [onNewNote, setNewNote] = useState(false);
   let [logDisplay, setlogDisplayPhone] = useState("desktop");
   useEffect(() => {
     if (windowSize.width >= 1200) {
@@ -77,6 +77,8 @@ let HeadContext = ({ children }) => {
     stateBarList,
     setBarList,
     arrImgs,
+    onNewNote,
+    setNewNote,
   };
   return <Word.Provider value={StateWord}>{children}</Word.Provider>;
 };

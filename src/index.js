@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./Styles/index.css";
 import App from "./App";
@@ -15,6 +15,7 @@ import About from "./Componets/pages/about";
 import Feedbacks from "./Componets/pages/feedbacks";
 import FeedAPI from "./Componets/pages/apifeed";
 import HeadContext, { Word } from "./HeadPage/HeadContext";
+import Note from "./Componets/pages/Note App/app";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -26,6 +27,7 @@ root.render(
           <Route path="/*" element={<NOTfound />} />
           <Route path="/home" element={<App />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/home/note" element={<Note />} />
           <Route path="/about" element={<About />} />
           <Route path="/feedbacks" element={<Feedbacks />} />
           <Route element={<Prodict />}>

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Cvdata from "../../Data/Datacv.json";
 import { Word } from "../../HeadPage/HeadContext";
+
 export default function Cv(params) {
   let [classs, setClasss] = useState("");
   const { PhoneDisplay } = useContext(Word);
