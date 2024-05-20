@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./static/style.css";
 import CountNote from "./static/componets/CountNote";
 import Note from "./static/componets/Note";

@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./../style.css";
 import Notes from "../data.json";
 const Note = ({ pNote, tNote, likes, Key }) => {
-  const ObjLikes = refValue(() => {
+  const ObjLikes = (() => {
     let i = {};
     for (let index = 1; index < Notes.length + 1; index++) {
       i[index] = false;
     }
     return i;
-  });
+  })();
 
   let [onClickLike, setClickLike] = useState(null);
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      localStorage.setItem("user", JSON.stringify(ObjLikes));
+    }
+  }, []);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user"))[Key] === true) {
       setClickLike(true);
@@ -47,7 +52,4 @@ const Note = ({ pNote, tNote, likes, Key }) => {
     </div>
   );
 };
-function refValue(callback) {
-  return callback();
-}
 export default Note;
