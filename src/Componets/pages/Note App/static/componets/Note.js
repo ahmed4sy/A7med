@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./../style.css";
 import Notes from "../data.json";
+import { deleteNotes, like } from "../../store";
 const Note = ({ pNote, tNote, likes, Key }) => {
+  let globalStore = useSelector((state) => state);
+  let dispatch = useDispatch();
+
   const ObjLikes = (() => {
     let i = {};
     for (let index = 1; index < Notes.length + 1; index++) {
@@ -15,14 +21,14 @@ const Note = ({ pNote, tNote, likes, Key }) => {
     if (!localStorage.getItem("user")) {
       localStorage.setItem("user", JSON.stringify(ObjLikes));
     }
-  }, []);
+  }, [ObjLikes]);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user"))[Key] === true) {
       setClickLike(true);
     } else if (JSON.parse(localStorage.getItem("user"))[Key] === false) {
       setClickLike(false);
     }
-  }, []);
+  }, [Key]);
   useEffect(() => {
     if (onClickLike === true) {
       ObjLikes[Key] = true;
@@ -31,13 +37,16 @@ const Note = ({ pNote, tNote, likes, Key }) => {
       ObjLikes[Key] = false;
       localStorage.setItem("user", JSON.stringify(ObjLikes));
     }
-  }, [onClickLike]);
+  }, [onClickLike, Key, ObjLikes]);
   return (
     <div className="oneNote">
       <h3 className="titlenote">{tNote}</h3>
       <div
         className="counLike"
-        onClick={() => (onClickLike ? setClickLike(false) : setClickLike(true))}
+        onClick={() => {
+          dispatch(like());
+          onClickLike ? setClickLike(false) : setClickLike(true);
+        }}
       >
         {onClickLike ? (
           <img alt="like" src="/imgs/Hertup2.png" className="like" />
@@ -47,7 +56,9 @@ const Note = ({ pNote, tNote, likes, Key }) => {
         <span>{likes}</span>
       </div>
 
-      <span className="remove">X</span>
+      <span className="remove" onClick={() => dispatch(deleteNotes())}>
+        X
+      </span>
       <p>{pNote}</p>
     </div>
   );

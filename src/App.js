@@ -5,7 +5,7 @@ import Template from "./Componets/Home/Container";
 
 import "./Styles/App.css";
 import "./Styles/StylePage.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Word } from "./HeadPage/HeadContext";
 function App() {
   //app
@@ -21,44 +21,15 @@ function App() {
   let { setProdict } = useContext(Word);
   useEffect(() => setProdict(true), [setProdict]);
   let { arrImgs } = useContext(Word);
-  let [loa, setLoa] = useState("sizeC");
-  const { PhoneDisplay } = useContext(Word);
-
-  useEffect(() => {
-    PhoneDisplay("ConstStyle", [setLoa], ["sizeP"]);
-  }, [PhoneDisplay]);
-  let [loading, setloading] = useState(false);
-  useEffect(() => {
-    if (!sessionStorage.getItem("loading")) {
-      sessionStorage.setItem("loading", "none");
-    }
-
-    if (sessionStorage.getItem("loading") !== "view") {
-      setloading(true);
-      setTimeout(() => {
-        setloading(false);
-      }, 1000);
-      sessionStorage.setItem("loading", "view");
-    }
-  }, [loading]);
 
   return (
-    <>
-      {loading ? (
-        <div className={"load " + loa}>
-          <div className="loading"></div>
-          <img alt="loading" src="wait.gif" />
-        </div>
-      ) : (
-        <div>
-          <Page>
-            <Cv />
-            <Scm />
-            <Template>{arrImgs}</Template>
-          </Page>
-        </div>
-      )}
-    </>
+    <div>
+      <Page>
+        <Cv />
+        <Scm />
+        <Template>{arrImgs}</Template>
+      </Page>
+    </div>
   );
 }
 

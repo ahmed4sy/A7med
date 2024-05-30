@@ -11,7 +11,10 @@ export default function Cv(params) {
   }, [PhoneDisplay]);
   return (
     <div className={classs + " color-back"}>
-      <img src="/pro.png" alt="pro" />
+      <div className="imgstylenew">
+        <img src="/pro.png" alt="pro" />
+      </div>
+
       <h2 className={"Title-Cv"}>{Cvdata.name}</h2>
       <p className="P-Cv">{Cvdata.para}</p>
     </div>

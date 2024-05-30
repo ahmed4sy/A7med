@@ -11,7 +11,7 @@ export default function Scm(params) {
   }, [PhoneDisplay]);
   let ele = scm.map((eve) => {
     return (
-      <a href={eve.link} key={eve.id}>
+      <a href={eve.link} key={eve.id} className="imgstylenew">
         <img alt={eve.name} key={eve.id} className="Img-Scm" src={eve.img} />
       </a>
     );

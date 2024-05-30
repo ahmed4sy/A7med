@@ -27,7 +27,9 @@ root.render(
           <Route path="/*" element={<NOTfound />} />
           <Route path="/home" element={<App />} />
           <Route path="/projects" element={<Projects />} />
+
           <Route path="/home/note" element={<Note />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/feedbacks" element={<Feedbacks />} />
           <Route element={<Prodict />}>

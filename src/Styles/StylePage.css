@@ -1,4 +1,9 @@
-
+.imgstylenew{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
 .Title-Page {
     display: inline-block;
     margin-left: 25px;
