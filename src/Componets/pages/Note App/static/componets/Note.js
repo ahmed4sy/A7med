@@ -44,7 +44,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
       <div
         className="counLike"
         onClick={() => {
-          dispatch(like());
+          dispatch(like(Key));
           onClickLike ? setClickLike(false) : setClickLike(true);
         }}
       >
@@ -56,7 +56,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
         <span>{likes}</span>
       </div>
 
-      <span className="remove" onClick={() => dispatch(deleteNotes())}>
+      <span className="remove" onClick={() => dispatch(deleteNotes(Key))}>
         X
       </span>
       <p>{pNote}</p>

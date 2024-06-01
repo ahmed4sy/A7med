@@ -1,13 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useReducer } from "react";
 import "./../style.css";
 import { useDispatch } from "react-redux";
 import { Word } from "./../../../../../HeadPage/HeadContext.js";
 import { add } from "../../store.js";
 const FormNote = () => {
   let { onNewNote, setNewNote } = useContext(Word);
+  const handleDataNote = (state, action) => {
+    switch (action.type) {
+      case "title":
+        return { ...state, title: action.contain };
+      case "article":
+        return { ...state, article: action.contain };
+      default:
+        return state;
+    }
+  };
 
-  let { titleNot, setTitle } = useState("");
-  let { textNot, setText } = useState("");
+  let [counterNote, dispatchNote] = useReducer(handleDataNote, {
+    title: "",
+    article: "",
+  });
   let dispatch = useDispatch();
   if (onNewNote) {
     return (
@@ -19,16 +31,20 @@ const FormNote = () => {
                 type="text"
                 className="NoteTitle"
                 placeholder="Title.."
-                onChange={(e) => setTitle(e.target.value)}
-                value={titleNot}
+                onChange={(e) =>
+                  dispatchNote({ type: "title", contain: e.target.value })
+                }
+                value={counterNote.title}
               />
             </h3>
             <p>
               <textarea
                 className="NoteCount"
                 placeholder="Text Note Here.."
-                onChange={(e) => setText(e.target.value)}
-                value={textNot}
+                onChange={(e) =>
+                  dispatchNote({ type: "article", contain: e.target.value })
+                }
+                value={counterNote.article}
               ></textarea>
             </p>
           </div>
@@ -37,7 +53,7 @@ const FormNote = () => {
             style={{ margin: 5, marginLeft: 40 }}
             onClick={() => {
               setNewNote(false);
-              dispatch(add());
+              dispatch(add(counterNote));
             }}
           >
             save
