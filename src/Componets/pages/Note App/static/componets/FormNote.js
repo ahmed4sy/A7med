@@ -6,6 +6,7 @@ import { add } from "../../store.js";
 const FormNote = () => {
   let { onNewNote, setNewNote } = useContext(Word);
   let [titleStyle, setTitleStyle] = useState({});
+  let { setAPiNot } = useContext(Word);
   let inintState = {
     title: "",
     article: "",
@@ -36,9 +37,9 @@ const FormNote = () => {
                 className="NoteTitle"
                 style={titleStyle}
                 placeholder="Title.."
-                onChange={(e) =>
-                  dispatchNote({ type: "title", contain: e.target.value })
-                }
+                onChange={(e) => {
+                  dispatchNote({ type: "title", contain: e.target.value });
+                }}
                 value={counterNote.title}
               />
             </h3>
@@ -71,6 +72,7 @@ const FormNote = () => {
                 setNewNote(false);
                 dispatch(add(counterNote));
                 dispatchNote({ type: "rest" });
+                setAPiNot("ADD");
               }
             }}
           >

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./../style.css";
 import Notes from "../data.json";
 import { deleteNotes, like } from "../../store";
+import { Word } from "../../../../../HeadPage/HeadContext";
 const Note = ({ pNote, tNote, likes, Key }) => {
   let globalStore = useSelector((state) => state);
   let dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
   })();
 
   let [onClickLike, setClickLike] = useState(null);
+  let { setAPiNot } = useContext(Word);
   useEffect(() => {
     if (!localStorage.getItem("user")) {
       localStorage.setItem("user", JSON.stringify(ObjLikes));
@@ -45,6 +47,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
         className="counLike"
         onClick={() => {
           dispatch(like(Key));
+          setAPiNot("like");
           onClickLike ? setClickLike(false) : setClickLike(true);
         }}
       >
@@ -56,7 +59,13 @@ const Note = ({ pNote, tNote, likes, Key }) => {
         <span>{likes}</span>
       </div>
 
-      <span className="remove" onClick={() => dispatch(deleteNotes(Key))}>
+      <span
+        className="remove"
+        onClick={() => {
+          setAPiNot("rm");
+          dispatch(deleteNotes(Key));
+        }}
+      >
         X
       </span>
       <p>{pNote}</p>

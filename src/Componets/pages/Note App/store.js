@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 let initState = { type: "none" };
+
 const CounterNotes = createSlice({
   name: "notes",
   initialState: initState,

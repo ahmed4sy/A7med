@@ -59,6 +59,7 @@ let HeadContext = ({ children }) => {
   };
   let [Prodict, setProdict] = useState(false);
   const [Viwes, setViwes] = useState(0);
+  const [APINot, setAPiNot] = useState("none");
   // const APIPromse = async () => {
   //   const fee = axios.get("http://127.0.0.1:8080/api/viwes");
   //   setViwes((await fee).data.viwes);
@@ -79,6 +80,8 @@ let HeadContext = ({ children }) => {
     arrImgs,
     onNewNote,
     setNewNote,
+    APINot,
+    setAPiNot,
   };
   return <Word.Provider value={StateWord}>{children}</Word.Provider>;
 };

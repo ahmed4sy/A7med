@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./static/style.css";
 import { Provider } from "react-redux";
 import CountNote from "./static/componets/CountNote";
@@ -7,8 +7,10 @@ import FormNote from "./static/componets/FormNote";
 import { Link } from "react-router-dom";
 import Store from "./store";
 import axios from "axios";
+import { Word } from "../../../HeadPage/HeadContext";
 const AppNote = () => {
   let [Notes, setNotes] = useState([]);
+  let { APINot } = useContext(Word);
   let APINotes = async () => {
     try {
       const fee = axios.get("https://aghshu.pythonanywhere.com/api/notes");
@@ -27,7 +29,8 @@ const AppNote = () => {
   };
   useEffect(() => {
     APINotes();
-  }, [Notes]);
+    console.log(APINot);
+  }, [APINot]);
   const NoteArr = Notes.map((note) => {
     if (note.show) {
       return (
