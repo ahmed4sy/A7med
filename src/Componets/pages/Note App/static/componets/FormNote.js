@@ -1,25 +1,13 @@
-import { useContext, useReducer } from "react";
+import { useContext, useState } from "react";
 import "./../style.css";
 import { useDispatch } from "react-redux";
 import { Word } from "./../../../../../HeadPage/HeadContext.js";
 import { add } from "../../store.js";
 const FormNote = () => {
   let { onNewNote, setNewNote } = useContext(Word);
-  const handleDataNote = (state, action) => {
-    switch (action.type) {
-      case "title":
-        return { ...state, [action.type]: action.contain };
-      case "article":
-        return { ...state, [action.type]: action.contain };
-      default:
-        return state;
-    }
-  };
 
-  let { counterNote, dispatchNote } = useReducer(handleDataNote, {
-    title: "",
-    article: "",
-  });
+  let { titleNot, setTitle } = useState("");
+  let { textNot, setText } = useState("");
   let dispatch = useDispatch();
   if (onNewNote) {
     return (
@@ -31,20 +19,16 @@ const FormNote = () => {
                 type="text"
                 className="NoteTitle"
                 placeholder="Title.."
-                onChange={(e) =>
-                  dispatchNote({ type: "title", contain: e.target.value })
-                }
-                value={counterNote.title}
+                onChange={(e) => setTitle(e.target.value)}
+                value={titleNot}
               />
             </h3>
             <p>
               <textarea
                 className="NoteCount"
                 placeholder="Text Note Here.."
-                onChange={(e) =>
-                  dispatchNote({ type: "article", contain: e.target.value })
-                }
-                value={counterNote.article}
+                onChange={(e) => setText(e.target.value)}
+                value={textNot}
               ></textarea>
             </p>
           </div>
