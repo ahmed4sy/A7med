@@ -29,8 +29,7 @@ const AppNote = () => {
   };
   useEffect(() => {
     APINotes();
-    console.log(APINot);
-  }, [APINot]);
+  }, [Notes]);
   const NoteArr = Notes.map((note) => {
     if (note.show) {
       return (
