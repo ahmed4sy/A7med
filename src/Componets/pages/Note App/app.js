@@ -10,8 +10,20 @@ import axios from "axios";
 const AppNote = () => {
   let [Notes, setNotes] = useState([]);
   let APINotes = async () => {
-    const fee = axios.get("http://127.0.0.1:8080/api/notes");
-    setNotes((await fee).data);
+    try {
+      const fee = axios.get("https://aghshu.pythonanywhere.com/api/notes");
+      setNotes((await fee).data);
+    } catch {
+      setNotes([
+        {
+          id: 0,
+          show: true,
+          title: "Error:",
+          Note: "Internet Failed",
+          like: 0,
+        },
+      ]);
+    }
   };
   useEffect(() => {
     APINotes();

@@ -6,21 +6,21 @@ const CounterNotes = createSlice({
   initialState: initState,
   reducers: {
     like: (state, Key) => {
-      axios.post("http://127.0.0.1:8080/api/notes", {
+      axios.post("https://aghshu.pythonanywhere.com/api/notes", {
         type: "like",
         key: Key.payload,
       });
       console.log("like");
     },
     deleteNotes: (state, Key) => {
-      axios.post("http://127.0.0.1:8080/api/notes", {
+      axios.post("https://aghshu.pythonanywhere.com/api/notes", {
         type: "delete",
         key: Key.payload,
       });
       console.log("delete");
     },
     add: (state, DataAdd) => {
-      axios.post("http://127.0.0.1:8080/api/notes", {
+      axios.post("https://aghshu.pythonanywhere.com/api/notes", {
         type: "add",
         key: DataAdd.payload,
       });
