@@ -28,17 +28,18 @@ const AppNote = () => {
     }
   };
   useEffect(() => {
-    if (APINot.type === "add") {
-      Notes.push(APINot.data);
-    } else if (APINot.type === "like") {
-      Notes[APINot.data].like += 1;
-    } else if (APINot.type === "rm") {
-      Notes[APINot.data].show = false;
-    }
-  }, [APINot]);
-  useEffect(() => {
     APINotes();
   }, []);
+  useEffect(() => {
+    if (APINot.type === "ADD") {
+      Notes.push(APINot.data);
+    } else if (APINot.type === "like") {
+      Notes[APINot.data - 1].like += 1;
+    } else if (APINot.type === "rm") {
+      Notes[APINot.data - 1].show = false;
+    }
+  }, [APINot, Notes]);
+
   const NoteArr = Notes.map((note) => {
     if (note.show) {
       return (
@@ -46,6 +47,7 @@ const AppNote = () => {
           tNote={note.title}
           pNote={note.Note}
           likes={note.like}
+          key={note.id}
           Key={note.id}
         />
       );
