@@ -53,7 +53,8 @@ const AppNote = () => {
       Notescopy.push({
         id: Notescopy.length + 1,
         show: true,
-        ...APINot.data,
+        title: APINot.data.title,
+        Note: APINot.data.article,
         like: 0,
       });
 
