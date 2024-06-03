@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./static/style.css";
 import { Provider } from "react-redux";
 import CountNote from "./static/componets/CountNote";
@@ -10,7 +10,7 @@ import axios from "axios";
 import { Word } from "../../../HeadPage/HeadContext";
 const AppNote = () => {
   let [Notes, setNotes] = useState([]);
-  let { APINot } = useContext(Word);
+  let { APINot, setAPiNot } = useContext(Word);
   let APINotes = async () => {
     try {
       const fee = axios.get("https://aghshu.pythonanywhere.com/api/notes");
@@ -30,30 +30,46 @@ const AppNote = () => {
   useEffect(() => {
     APINotes();
   }, []);
+  const handleNotes = (arr) => {
+    return arr.map((note) => {
+      if (note.show) {
+        return (
+          <Note
+            tNote={note.title}
+            pNote={note.Note}
+            likes={note.like}
+            key={note.id}
+            Key={note.id}
+          />
+        );
+      }
+      return "";
+    });
+  };
   useEffect(() => {
     if (APINot.type === "ADD") {
-      Notes.push(APINot.data);
+      let Notescopy = [...Notes];
+      Notescopy.push(APINot.data);
+      setNotes(Notescopy);
+      setAPiNot({ type: "none", data: "none" });
     } else if (APINot.type === "like") {
-      Notes[APINot.data - 1].like += 1;
+      let Notescopy = [...Notes];
+      Notescopy[APINot.data - 1].like += 1;
+      setNotes(Notescopy);
+      setAPiNot({ type: "none", data: "none" });
+      setAPiNot({ type: "none", data: "none" });
     } else if (APINot.type === "rm") {
-      Notes[APINot.data - 1].show = false;
+      let Notescopy = [...Notes];
+      Notescopy[APINot.data - 1].show = false;
+      setNotes(Notescopy);
+      setAPiNot({ type: "none", data: "none" });
     }
   }, [APINot, Notes]);
+  let NoteArr = handleNotes(Notes);
 
-  const NoteArr = Notes.map((note) => {
-    if (note.show) {
-      return (
-        <Note
-          tNote={note.title}
-          pNote={note.Note}
-          likes={note.like}
-          key={note.id}
-          Key={note.id}
-        />
-      );
-    }
-    return "";
-  });
+  // useEffect(() => {
+  //   noteArrRef.current = handleNotes(Notes);
+  // }, [Notes]);
   return (
     <Provider store={Store}>
       <div className="AppNote">
