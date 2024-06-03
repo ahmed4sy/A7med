@@ -49,7 +49,14 @@ const AppNote = () => {
   useEffect(() => {
     if (APINot.type === "ADD") {
       let Notescopy = [...Notes];
-      Notescopy.push(APINot.data);
+
+      Notescopy.push({
+        id: Notescopy.length + 1,
+        show: true,
+        ...APINot.data,
+        like: 0,
+      });
+
       setNotes(Notescopy);
       setAPiNot({ type: "none", data: "none" });
     } else if (APINot.type === "like") {
