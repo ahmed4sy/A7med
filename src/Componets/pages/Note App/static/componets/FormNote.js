@@ -72,7 +72,7 @@ const FormNote = () => {
                 setNewNote(false);
                 dispatch(add(counterNote));
                 dispatchNote({ type: "rest" });
-                setAPiNot("ADD");
+                setAPiNot({ type: "ADD", data: counterNote });
               }
             }}
           >

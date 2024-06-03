@@ -28,8 +28,17 @@ const AppNote = () => {
     }
   };
   useEffect(() => {
+    if (APINot.type === "add") {
+      APINotes();
+    } else if (APINot.type === "like") {
+      APINotes();
+    } else if (APINot.type === "rm") {
+      APINotes();
+    }
+  }, [APINot]);
+  useEffect(() => {
     APINotes();
-  }, [Notes]);
+  }, []);
   const NoteArr = Notes.map((note) => {
     if (note.show) {
       return (

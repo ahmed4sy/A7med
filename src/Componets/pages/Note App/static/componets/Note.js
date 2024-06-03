@@ -17,7 +17,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
         className="counLike"
         onClick={() => {
           dispatch(like(Key));
-          setAPiNot("like");
+          setAPiNot({ type: "like", data: Key });
           setClickLike(true);
         }}
       >
@@ -32,7 +32,7 @@ const Note = ({ pNote, tNote, likes, Key }) => {
       <span
         className="remove"
         onClick={() => {
-          setAPiNot("rm");
+          setAPiNot({ type: "rm", data: Key });
           dispatch(deleteNotes(Key));
         }}
       >
