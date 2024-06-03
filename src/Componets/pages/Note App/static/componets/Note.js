@@ -12,32 +12,43 @@ const Note = ({ pNote, tNote, likes, Key }) => {
 
   return (
     <div className="oneNote">
-      <h3 className="titlenote">{tNote}</h3>
-      <div
-        className="counLike"
-        onClick={() => {
-          dispatch(like(Key));
-          setAPiNot({ type: "like", data: Key });
-          setClickLike(true);
+      <nav
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        {onClickLike ? (
-          <img alt="like" src="/imgs/Hertup2.png" className="like" />
-        ) : (
-          <img alt="like" src="/imgs/Hertnone2.png" className="like" />
-        )}
-        <span>{likes}</span>
-      </div>
+        <h3 className="titlenote">{tNote}</h3>
+        <div>
+          <div
+            className="counLike"
+            onClick={() => {
+              dispatch(like(Key));
+              setAPiNot({ type: "like", data: Key });
+              setClickLike(true);
+            }}
+          >
+            {onClickLike ? (
+              <img alt="like" src="/imgs/Hertup2.png" className="like" />
+            ) : (
+              <img alt="like" src="/imgs/Hertnone2.png" className="like" />
+            )}
+            <span>{likes}</span>
+          </div>
 
-      <span
-        className="remove"
-        onClick={() => {
-          setAPiNot({ type: "rm", data: Key });
-          dispatch(deleteNotes(Key));
-        }}
-      >
-        X
-      </span>
+          <span
+            className="remove"
+            onClick={() => {
+              setAPiNot({ type: "rm", data: Key });
+              dispatch(deleteNotes(Key));
+            }}
+          >
+            X
+          </span>
+        </div>
+      </nav>
+
       <p>{pNote}</p>
     </div>
   );
