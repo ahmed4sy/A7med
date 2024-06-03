@@ -29,11 +29,11 @@ const AppNote = () => {
   };
   useEffect(() => {
     if (APINot.type === "add") {
-      APINotes();
+      Notes.push(APINot.data);
     } else if (APINot.type === "like") {
-      APINotes();
+      Notes[APINot.data].like += 1;
     } else if (APINot.type === "rm") {
-      APINotes();
+      Notes[APINot.data].show = false;
     }
   }, [APINot]);
   useEffect(() => {
