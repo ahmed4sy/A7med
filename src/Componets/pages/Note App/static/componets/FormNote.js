@@ -58,22 +58,10 @@ const FormNote = () => {
             className="NewNote"
             style={{ margin: 5, marginLeft: 40 }}
             onClick={() => {
-              if (
-                counterNote.title.length > 5 ||
-                counterNote.article.length <= 2
-              ) {
-                setTitleStyle({
-                  border: "red solid 2px",
-                });
-              } else {
-                setTitleStyle({
-                  border: "green solid 2px",
-                });
-                setNewNote(false);
-                dispatch(add(counterNote));
-                dispatchNote({ type: "rest" });
-                setAPiNot({ type: "ADD", data: counterNote });
-              }
+              setNewNote(false);
+              dispatch(add(counterNote));
+              dispatchNote({ type: "rest" });
+              setAPiNot({ type: "ADD", data: counterNote });
             }}
           >
             save
